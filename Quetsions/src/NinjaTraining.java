@@ -18,6 +18,29 @@ public class NinjaTraining {
         }
         return maxi;
     }
+
+    //memoization
+    static int memo(int [][] arr,int idx,int days,int [][]dp){
+        if(days==0){
+            int maxi=0;
+            for(int i=0;i<3;i++){
+                if(i!=idx){
+                    maxi=Math.max(maxi,arr[days][i]);
+                }
+            }
+            return maxi;
+        }
+        if (dp[days][idx]!=-1) return dp[days][idx];
+        int maxi=0;
+        for(int i=0;i<3;i++){
+            if(i!=idx){
+                int points=arr[days][i]+recursive(arr,i,days-1);
+                maxi=Math.max(maxi,points);
+            }
+        }
+        return dp[days][idx]=maxi;
+    }
+
     static int ninja(int [][] arr){
         return recursive(arr,arr.length-1,3);
     }
