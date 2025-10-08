@@ -41,11 +41,34 @@ public class NinjaTraining {
         return dp[days][idx]=maxi;
     }
 
+    // Tabulation
+    static int tabu(int [][] arr){
+        int n=arr.length;
+        int [][] dp=new int[n][4];
+
+        dp[0][0]=Math.max(arr[0][1],arr[0][2]);
+        dp[0][1]=Math.max(arr[0][0],arr[0][2]);
+        dp[0][2]=Math.max(arr[0][0],arr[0][1]);
+        dp[0][3]=Math.max(arr[0][0],Math.max(arr[0][1],arr[0][2]));
+
+        for(int days=1;days<n;days++){
+            for(int last=0;last<4;last++){
+                for(int idx=0;idx<3;idx++){
+                    if(idx!=last){
+                        int points=arr[days][idx]+dp[days-1][idx];
+                        dp[days][last]=Math.max(dp[days][last],points);
+                    }
+                }
+            }
+        }
+        return dp[n-1][3];
+    }
     static int ninja(int [][] arr){
         return recursive(arr,arr.length-1,3);
     }
 
     public static void main(String[] args) {
         System.out.println(ninja(new int[][]{{2,1,3},{3,4,6},{10,1,6},{8,3,7}}));
+        System.out.println(tabu(new int[][]{{2,1,3},{3,4,6},{10,1,6},{8,3,7}}));
     }
 }
