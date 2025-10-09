@@ -52,11 +52,11 @@ public class NinjaTraining {
         dp[0][3]=Math.max(arr[0][0],Math.max(arr[0][1],arr[0][2]));
 
         for(int days=1;days<n;days++){
-            for(int last=0;last<4;last++){
+            for(int next=0;next<4;next++){
                 for(int idx=0;idx<3;idx++){
-                    if(idx!=last){
+                    if(idx!=next){
                         int points=arr[days][idx]+dp[days-1][idx];
-                        dp[days][last]=Math.max(dp[days][last],points);
+                        dp[days][next]=Math.max(dp[days][next],points);
                     }
                 }
             }
