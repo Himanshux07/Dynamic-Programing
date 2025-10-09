@@ -63,7 +63,7 @@ public class NinjaTraining {
         }
         return dp[n-1][3];
     }
-    static int spcOpt(int arr[][]){
+    static int spcOpt(int [][] arr){
         int n=arr.length;
         int [] prev=new int[4];
 
