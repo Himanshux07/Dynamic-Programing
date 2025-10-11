@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/2D DP/2D DP.iml" filepath="$PROJECT_DIR$/2D DP/2D DP.iml" />
       <module fileurl="file://$PROJECT_DIR$/DP.iml" filepath="$PROJECT_DIR$/DP.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Quetsions/Quetsions.iml" filepath="$PROJECT_DIR$/Quetsions/Quetsions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1D DP/Questions.iml" filepath="$PROJECT_DIR$/1D DP/Questions.iml" />
     </modules>
   </component>
 </project>
