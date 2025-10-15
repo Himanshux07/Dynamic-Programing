@@ -34,7 +34,7 @@ public class NinjaTraining {
         int maxi=0;
         for(int i=0;i<3;i++){
             if(i!=idx){
-                int points=arr[days][i]+recursive(arr,i,days-1);
+                int points=arr[days][i]+memo(arr,i,days-1,dp);
                 maxi=Math.max(maxi,points);
             }
         }
