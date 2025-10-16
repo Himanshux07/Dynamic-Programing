@@ -12,22 +12,31 @@ public class minFallingPathSum {
             Arrays.fill(dp[j],-1);
         }
         for(int j=0;j<m;j++){
-            ans=Math.min(ans,helper(matrix,n-1,j,dp));
+            ans=Math.min(ans,memo(matrix,n-1,j,dp));
         }
         return ans;
     }
     // Recursive
+    int rec(int [][] arr,int i,int j){
+        if(j<0 || j>=m) return (int)1e9;
+        if(i==0) return arr[i][j];
 
+        int up=rec(arr,i-1,j);
+        int upl=rec(arr,i-1,j-1);
+        int upr=rec(arr,i-1,j+1);
+
+        return arr[i][j]+Math.min(up,Math.min(upl,upr));
+    }
     // Memoization
-    int helper(int [][] arr,int i,int j,int [][] dp){
+    int memo(int [][] arr,int i,int j,int [][] dp){
         if(j<0 || j>=m) return (int)1e9;
         if(i==0) return arr[i][j];
 
         if(dp[i][j]!=-1) return dp[i][j];
 
-        int up=helper(arr,i-1,j,dp);
-        int upl=helper(arr,i-1,j-1,dp);
-        int upr=helper(arr,i-1,j+1,dp);
+        int up=memo(arr,i-1,j,dp);
+        int upl=memo(arr,i-1,j-1,dp);
+        int upr=memo(arr,i-1,j+1,dp);
 
         return dp[i][j]=arr[i][j]+Math.min(up,Math.min(upl,upr));
     }
