@@ -26,7 +26,9 @@ public class TargetSum {
     }
 
     public static void main(String[] args) {
-        System.out.println(rec(new int[]{2,4,11,3,9,16},7,2));
-        System.out.println();
+//        System.out.println(rec(new int[]{2,4,11,3,9,16},7,2));
+//        boolean[][] dp = new boolean [7][12]; // target=12-1=11
+//
+//        System.out.println(memo(new int[]{2,4,11,3,9,16},11,3,dp));
     }
 }
