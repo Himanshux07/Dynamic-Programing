@@ -44,6 +44,27 @@ public class TargetSum {
         return dp[arr.length-1][target];
     }
 
+    // Space Optimization
+    static boolean spcOpt(int [] arr,int target){
+        boolean[] prev=new boolean[target+1];
+        boolean[] curr= new boolean[target+1];
+
+        prev[0]=true;
+        curr[0]=true;
+        prev[arr[0]]=true;
+
+        for(int i=1;i<arr.length;i++){
+            for(int j=1;j<=target;j++){
+                boolean notTake=prev[j];
+                boolean Take=false;
+                if(arr[i]<=target)   Take=prev[j-arr[i]];
+
+                curr[j]=notTake || Take;
+            }
+            prev=curr;
+        }
+        return prev[target];
+    }
     public static void main(String[] args) {
 //        System.out.println(rec(new int[]{2,4,11,3,9,16},7,2));
 //        boolean[][] dp = new boolean [7][12]; // target=12-1=11
