@@ -56,7 +56,7 @@ public class TargetSum {
             for(int j=1;j<=target;j++){
                 boolean notTake=prev[j];
                 boolean Take=false;
-                if(arr[i]<=target)   Take=prev[target-arr[i]];
+                if(arr[i]<=j)   Take=prev[j-arr[i]];
 
                 curr[j]=notTake || Take;
             }
