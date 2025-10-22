@@ -30,7 +30,7 @@ public class TargetSum {
         boolean[][] dp = new boolean [arr.length][target];
 
         for(int i=0;i<arr.length;i++) dp[i][0]=true;
-        dp[0][arr[0]]=true;
+        if(target>=arr[0]) dp[0][arr[0]]=true;
 
         for(int i=1;i<arr.length;i++){
             for(int j=1;j<=target;j++){
