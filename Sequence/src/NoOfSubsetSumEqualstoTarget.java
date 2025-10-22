@@ -20,7 +20,8 @@ public class NoOfSubsetSumEqualstoTarget {
 
         return dp[index][target]=pick+notPick;
     }
-     //tabulation
+
+    //tabulation
     static int tabu(int [] arr,int target){
         int n=arr.length;
         int [][] dp= new int[n][target+1];
