@@ -40,7 +40,7 @@ public class coinExchange{
             for(int j=0;j<=target;j++){
                 int notPick=dp[i-1][j];
                 int pick=(int) 1e9;
-                if(j>=arr[i]) pick=1+dp[i][target-arr[i]];
+                if(j>=arr[i]) pick=1+dp[i][j-arr[i]];
 
                 dp[i][j]=Math.min(pick,notPick);
             }
@@ -62,7 +62,7 @@ public class coinExchange{
             for(int j=0;j<=target;j++){
                 int notPick=prev[j];
                 int pick=(int) 1e9;
-                if(j>=arr[i]) pick=1+curr[target-arr[i]];
+                if(j>=arr[i]) pick=1+curr[j-arr[i]];
 
                 curr[j]=Math.min(pick,notPick);
             }
