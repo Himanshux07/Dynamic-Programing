@@ -26,4 +26,25 @@ public class coinExchange{
 
         return dp[index][target]=Math.min(pick,notPick);
     }
+
+    //memoization
+    static int tabu(int [] arr,int target){
+        int n=arr.length;
+        int [][] dp= new int[n][target+1];
+
+        for(int i=0;i<=target;i++){
+            if(i%arr[0]==0) dp[0][i]=i/arr[0];
+            else dp[0][i]=(int)1e9;
+        }
+        for(int i=1;i<n;i++){
+            for(int j=0;j<=target;j++){
+                int notPick=dp[i-1][j];
+                int pick=(int) 1e9;
+                if(j>=arr[i]) pick=1+dp[i][target-arr[i]];
+
+                dp[i][j]=Math.min(pick,notPick);
+            }
+        }
+        return dp[n-1][target];
+    }
 }
