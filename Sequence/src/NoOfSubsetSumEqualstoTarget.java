@@ -15,8 +15,8 @@ public class NoOfSubsetSumEqualstoTarget {
         if(target==0) return 1;
         if(index<0 || target<0) return 0;
         if(dp[index][target]!=0) return dp[index][target];
-        int notPick=rec(arr,target,index-1);
-        int pick=rec(arr,target-arr[index],index-1);
+        int notPick=memo(arr,target,index-1,dp);
+        int pick=memo(arr,target-arr[index],index-1,dp);
 
         return dp[index][target]=pick+notPick;
     }
