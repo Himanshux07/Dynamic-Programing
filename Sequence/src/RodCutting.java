@@ -17,4 +17,19 @@ public class RodCutting {
 
         return Math.max(notPick,Pick);
     }
+
+    //memoization
+    static int memo(int [] arr,int n,int index,int [][] dp){
+        if(index==0){
+            return arr[0]*n;
+        }
+        if(dp[index][n]!=-1) return dp[index][n];
+        int notPick=+memo(arr,n,index-1,dp);
+        int Pick=(int)-1e9;
+        int idx=index+1;
+        if(idx<=n) Pick=arr[index]+memo(arr,n-arr[index],index-1,dp);
+
+        return dp[index][n]=Math.max(notPick,Pick);
+    }
+
 }
