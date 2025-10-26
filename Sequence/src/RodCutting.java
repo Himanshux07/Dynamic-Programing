@@ -5,4 +5,16 @@
 
 public class RodCutting {
 
+    //recursive
+    static int rec(int [] arr,int n,int index){
+        if(index==0){
+            return arr[0]*n;
+        }
+        int notPick=+rec(arr,n,index-1);
+        int Pick=(int)-1e9;
+        int idx=index+1;
+        if(idx<=n) Pick=arr[index]+rec(arr,n-arr[index],index-1);
+
+        return Math.max(notPick,Pick);
+    }
 }
