@@ -19,7 +19,5 @@ public class LongestCommonSubsequence {
         else return dp[idx1][idx2]=Math.max(memo(s1,s2,idx1-1,idx2,dp),memo(s1,s2,idx1,idx2-1,dp));
     }
 
-    public static void main(String[] args) {
-        System.out.println(rec("himanshu","palak",7,4));
-    }
+
 }
