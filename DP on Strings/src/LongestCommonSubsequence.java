@@ -9,14 +9,14 @@ public class LongestCommonSubsequence {
         else return Math.max(rec(s1,s2,idx1-1,idx2),rec(s1,s2,idx1,idx2-1));
     }
 
-    //tabulation
-    static int tabu(String s1,String s2,int idx1,int idx2,int[][] dp){
+    //memoization
+    static int memo(String s1,String s2,int idx1,int idx2,int[][] dp){
         if(idx1<0 || idx2<0) return 0;
         if(dp[idx1][idx2]!=-1) return dp[idx1][idx2];
         if(s1.charAt(idx1)==s2.charAt(idx2)){
-            return dp[idx1][idx2]=1+rec(s1,s2,idx1-1,idx2-1);
+            return dp[idx1][idx2]=1+memo(s1,s2,idx1-1,idx2-1,dp);
         }
-        else return dp[idx1][idx2]=Math.max(rec(s1,s2,idx1-1,idx2),rec(s1,s2,idx1,idx2-1));
+        else return dp[idx1][idx2]=Math.max(memo(s1,s2,idx1-1,idx2,dp),memo(s1,s2,idx1,idx2-1,dp));
     }
 
     public static void main(String[] args) {
