@@ -1,15 +1,19 @@
 public class LCSubsrting {
 
     //recursion
-    static int rec(String s1,String s2,int idx1,int idx2){
-        if(idx1<0 || idx2<0) return 0;
-        int r2=0;
-        if(s1.charAt(idx1)==s2.charAt(idx2)){
-            r2=1+rec(s1,s2,idx1-1,idx2-1);
+    static int rec(String s1,String s2,int i,int j,int count){
+        if(i==0 || j==0) return count;
+
+        int c1=count;
+
+        if(s1.charAt(i-1) == s2.charAt(j-1)){
+            c1=rec(s1,s2,i-1,j-1,count+1);
         }
 
-        int r1=Math.max(rec(s1,s2,idx1-1,idx2),rec(s1,s2,idx1,idx2-1));
-        return Math.max(r1,r2);
+        int c2=rec(s1,s2,i-1,j,0);
+        int c3=rec(s1,s2,i,j-1,0);
+
+        return Math.max(c1,Math.max(c2,c3));
     }
     // tabulation
     static int tabu(String s1,String s2){
@@ -35,6 +39,6 @@ public class LCSubsrting {
 
     public static void main(String[] args) {
         System.out.println(tabu("himansu","manshu"));
-        System.out.println(rec("himansu","manshu",6,5));
+        System.out.println(rec("himansu","manshu",6,5,0));
     }
 }
