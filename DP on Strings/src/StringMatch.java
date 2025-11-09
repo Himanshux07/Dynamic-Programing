@@ -5,15 +5,7 @@ public class StringMatch {
         int n=word1.length();
         int m=word2.length();
 
-        int dif=Math.abs(n-m);
-        int ans=0;
-        if(n>m) {
-            if(l==m) ans=n-l;
-            else ans=(n-l)+(m-l);
-        }
-        else ans=dif+2*Math.abs(n-l);
-
-        return ans;
+        return n+m-2*l;
     }
     static int tabu(String s1,String s2){
         int n=s1.length();
