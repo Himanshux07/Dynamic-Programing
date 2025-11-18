@@ -13,4 +13,18 @@ public class BnSIII {
         return profit;
     }
 
+    //memoization
+    static int tabu(int [] arr,int idx,int tran,Integer [][] dp){
+        if(tran==4) return 0;
+        if(idx==arr.length) return 0;
+        if(dp[idx][tran]!=null ) return dp[idx][tran];
+        int profit=0;
+        if(tran%2==0){
+            profit=Math.max(-(arr[idx])+tabu(arr,idx+1,tran+1,dp),tabu(arr,idx+1,tran,dp));
+        }
+        else{
+            profit=Math.max((arr[idx])+tabu(arr,idx+1,tran+1,dp),tabu(arr,idx+1,tran,dp));
+        }
+        return profit;
+    }
 }
