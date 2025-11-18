@@ -27,4 +27,29 @@ public class BnSIII {
         }
         return profit;
     }
+
+    // tabulation
+    static int tabu(int [] arr){
+        int n= arr.length;
+        int [][] dp = new int[n+1][5];
+        for(int i=0;i<=n;i++){
+            dp[i][4]=0;
+        }
+        for(int i=0;i<5;i++){
+            dp[n][i]=0;
+        }
+        for(int idx=n-1;idx>=0;idx--){
+            for(int tran=0;tran<4;tran++){
+                int profit=0;
+                if(tran%2==0){
+                    profit=Math.max(-(arr[idx])+dp[idx+1][tran+1],dp[idx+1][tran]);
+                }
+                else{
+                    profit=Math.max((arr[idx])+dp[idx+1][tran+1],dp[idx+1][tran]);
+                }
+                dp[idx][tran]=profit;
+            }
+        }
+        return dp[0][0];
+    }
 }
