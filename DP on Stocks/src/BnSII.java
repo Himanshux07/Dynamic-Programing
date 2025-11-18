@@ -9,10 +9,12 @@ public class BnSII {
     int solve(int idx, int buy, int[] prices, Integer[][] dp) {
         if (idx == prices.length) return 0;
 
+        
         if (dp[idx][buy] != null) return dp[idx][buy];
 
         if (buy == 1) {
             int buyIt = -prices[idx] + solve(idx + 1, 0, prices, dp);
+
 
             int skip = solve(idx + 1, 1, prices, dp);
             return dp[idx][buy] = Math.max(buyIt, skip);
