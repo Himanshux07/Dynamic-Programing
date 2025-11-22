@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/DP.iml" filepath="$PROJECT_DIR$/DP.iml" />
       <module fileurl="file://$PROJECT_DIR$/DP on Stocks/DP on Stocks.iml" filepath="$PROJECT_DIR$/DP on Stocks/DP on Stocks.iml" />
       <module fileurl="file://$PROJECT_DIR$/DP on Strings/DP on Strings.iml" filepath="$PROJECT_DIR$/DP on Strings/DP on Strings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LIS/LIS.iml" filepath="$PROJECT_DIR$/LIS/LIS.iml" />
       <module fileurl="file://$PROJECT_DIR$/1D DP/Questions.iml" filepath="$PROJECT_DIR$/1D DP/Questions.iml" />
       <module fileurl="file://$PROJECT_DIR$/Sequence/Sequence.iml" filepath="$PROJECT_DIR$/Sequence/Sequence.iml" />
     </modules>
