@@ -1,3 +1,4 @@
+//https://leetcode.com/problems/longest-string-chain/
 import java.util.Arrays;
 
 public class LongestStringChaining {
