@@ -23,6 +23,25 @@ public class MCM {
         }
         return dp[i][j]=ans;
     }
+
+    //tabulation
+    static int tabu(int arr[]){
+        int n=arr.length;
+        int [][] dp=new int[n][n];
+        for(int i=0;i<n;i++) dp[i][i]=0;
+
+        for(int i=n-1;i>=1;i--){
+            for(int j=i+1;j<n;j++){
+                int ans=(int)1e9;
+                for(int k=i;k<=j-1;k++){
+                    int steps=arr[i-1]*arr[k]*arr[j]+dp[i][k]+dp[k+1][j];
+                    ans=Math.min(ans,steps);
+                }
+                dp[i][j]=ans;
+            }
+        }
+        return dp[1][n-1];
+    }
     public static void main(String[] args) {
         System.out.println(rec(1,4,new int[]{10,20,30,40,50}));
         int[][] dp = new int[5][5];
@@ -30,5 +49,6 @@ public class MCM {
             Arrays.fill(dp[i],-1);
         }
         System.out.println(memo(1,4,new int[]{10,20,30,40,50},dp));
+        System.out.println(tabu(new int[]{10,20,30,40,50}));
     }
 }
